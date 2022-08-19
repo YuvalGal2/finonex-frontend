@@ -1,0 +1,16 @@
+img {
+  width: 150px;
+  height: 150px;
+}
+@media(min-width: 768px) {
+  img {
+    width: 400px;
+    height: 400px;
+  }
+}
+@media(min-width: 1024px) {
+  img {
+    max-height: 600px;
+    max-width: 600px;
+  }
+}

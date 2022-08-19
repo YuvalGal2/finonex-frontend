@@ -1,0 +1,13 @@
+.homepage {
+  background-color:#ff0000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+.content {
+  display: flex;
+}
+.top-ten-photos, .top-ten-posts {
+  flex-basis: 50%;
+}

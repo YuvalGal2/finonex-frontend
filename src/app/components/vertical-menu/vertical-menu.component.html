@@ -1,3 +1,10 @@
 <div class="vertical-menu">
-  <span *ngFor="let link of links">{{link.text}}</span>
+  <div class="links">
+    <div class="link" *ngFor="let link of links">
+      <a [routerLink]="link.url">{{link.text}}</a>
+    </div>
+  </div>
 </div>
+
+
+
