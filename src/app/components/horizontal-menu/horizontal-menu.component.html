@@ -1,0 +1,9 @@
+<div class="horizontal-menu"
+     [style]="{'backgroundColor': color, 'height': height + 'px' }">
+  <div class="links"  [ngClass]="alignment === 'center' ? 'align-center' : 'align-right'">
+    <div class="link" *ngFor="let link of links">
+      <span>::</span>
+      <a [routerLink]="link.url">{{link.text}}</a>
+    </div>
+  </div>
+</div>

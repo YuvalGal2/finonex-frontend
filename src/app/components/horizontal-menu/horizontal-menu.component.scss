@@ -1,0 +1,26 @@
+.horizontal-menu {
+  width:100%;
+  min-height: 20px;
+  display: flex;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.links {
+  display: flex;
+  width: 100%;
+}
+.link {
+  display: flex;
+  margin:1px;
+  padding:1px;
+  align-content: center;
+  font-weight: bold;
+}
+
+.align-center {
+  justify-content: center;
+}
+
+.align-right {
+  justify-content: end;
+}
