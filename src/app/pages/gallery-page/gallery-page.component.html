@@ -1,5 +1,8 @@
 <div class="gallery-page page">
   <div class="content">
-    <app-gallery [photos]="photos" [clickableGalleryImages]="true"> </app-gallery>
+    <div class="loading-wrapper">
+      <p *ngIf="loadingState">Loading, please wait...</p>
+    </div>
+    <app-gallery [photos]="photos"  [clickableGalleryImages]="true" (loadingState)="changeLoadingState($event)"> </app-gallery>
   </div>
 </div>

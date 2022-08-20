@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Photo} from "../../models/photo.model";
 import {Data} from "@angular/router";
 import {DataService} from "../../services/data.service";
@@ -11,7 +11,7 @@ import {DataService} from "../../services/data.service";
 export class GalleryComponent implements OnInit {
   @Input('photos') photos: Photo[] = [];
   @Input('clickableGalleryImages') clickableGalleryImages: boolean = false;
-
+  @Output('loadingState') loadingState = new EventEmitter<boolean>();
   constructor(private dataService: DataService) {
   }
 
@@ -20,9 +20,11 @@ export class GalleryComponent implements OnInit {
 
   showAlbumRelatedImages(photo: Photo) {
     if (this.clickableGalleryImages) {
-      this.dataService.getAlbumById(photo.albumId);
-      this.dataService.filteredImagesSubject.subscribe((filteredPhotos: Photo[]) => this.photos = filteredPhotos);
-      console.log(this.photos);
+      this.loadingState.emit(true);
+      this.dataService.getAlbumById(photo.albumId).subscribe((filteredPhotos: Photo[]) => {
+        this.photos = filteredPhotos
+        this.loadingState.emit(false);
+      });
     }
   }
 }

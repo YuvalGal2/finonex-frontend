@@ -9,14 +9,21 @@ import {Photo} from "../../models/photo.model";
 })
 export class GalleryPageComponent implements OnInit {
   photos: Photo[] = [];
+  loadingState: boolean = true;
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.fetchPhotos();
   }
 
+  changeLoadingState(state:boolean): void {
+    this.loadingState = state;
+  }
   fetchPhotos():void {
-    this.dataService.getGalleryPhotos().subscribe((photos: Photo[]) => this.photos = photos);
+    this.dataService.getGalleryPhotos().subscribe((photos: Photo[]) => {
+      this.loadingState = false;
+      this.photos = photos;
+    });
   }
 
 }

@@ -14,8 +14,8 @@
     <mat-label>Email Address:</mat-label>
     <input type="email" matInput name="email" formControlName="email" #email>
     <mat-error>
-      <span *ngIf="!contactForm.controls.email.hasError('email')">Please enter a valid email address</span>
-      <span *ngIf="!contactForm.controls.email.hasError('required')">Please enter a email address</span>
+      <p *ngIf="!contactForm.controls.email.hasError('email')">Please enter a valid email address</p>
+      <p *ngIf="!contactForm.controls.email.hasError('required')">Please enter a email address</p>
     </mat-error>
   </mat-form-field>
 
@@ -23,8 +23,8 @@
     <mat-label>Phone Number</mat-label>
     <input type="phone" matInput name="phone" formControlName="phone">
     <mat-error>
-      <span *ngIf="!contactForm.controls.phone.hasError('phone')">Please enter a valid Ukraine Number e.g: +380123456789</span>
-      <span *ngIf="!contactForm.controls.phone.hasError('required')">Please enter a email address</span>
+      <p *ngIf="!contactForm.controls.phone.hasError('phone')">Please enter a valid Ukraine Number e.g: +380123456789</p>
+      <p *ngIf="!contactForm.controls.phone.hasError('required')">Please enter a email address</p>
     </mat-error>
   </mat-form-field>
   <div class="submit-button">

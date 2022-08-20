@@ -1,5 +1,5 @@
 <div class="gallery">
-  <div class="images">
+  <div class="images" *ngIf="photos.length > 0">
     <h4>Showing total of {{photos.length}} Images</h4>
     <div class="image" *ngFor="let photo of photos">
       <app-image  [photoData]="photo" (click)="showAlbumRelatedImages(photo);"></app-image>
