@@ -1,7 +1,8 @@
 <div class="gallery">
   <div class="images">
+    <h4>Showing total of {{photos.length}} Images</h4>
     <div class="image" *ngFor="let photo of photos">
-      <app-image  [photoData]="photo"></app-image>
+      <app-image  [photoData]="photo" (click)="showAlbumRelatedImages(photo);"></app-image>
     </div>
   </div>
 </div>

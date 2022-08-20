@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-contact-page',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  templateUrl: './contact-page.component.html',
+  styleUrls: ['./contact-page.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactPageComponent implements OnInit {
 
   constructor() { }
 

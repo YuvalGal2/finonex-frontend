@@ -4,8 +4,8 @@ import {Photo} from "../../models/photo.model";
 
 @Component({
   selector: 'app-gallery-page-page',
-  templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.scss']
+  templateUrl: './gallery-page.component.html',
+  styleUrls: ['./gallery-page.component.scss']
 })
 export class GalleryPageComponent implements OnInit {
   photos: Photo[] = [];
