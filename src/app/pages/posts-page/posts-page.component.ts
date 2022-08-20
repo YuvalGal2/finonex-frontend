@@ -8,7 +8,7 @@ import {Subscription} from "rxjs";
   templateUrl: './posts-page.component.html',
   styleUrls: ['./posts-page.component.scss']
 })
-export class PostsPageComponent implements OnInit {
+export class PostsPageComponent implements OnInit,OnDestroy {
   posts: Post[] = [];
   subscriptions: Subscription[] = [];
   constructor(private dataService: DataService) { }

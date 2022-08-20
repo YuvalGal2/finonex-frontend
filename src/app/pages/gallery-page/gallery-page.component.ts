@@ -8,7 +8,7 @@ import {Subscription} from "rxjs";
   templateUrl: './gallery-page.component.html',
   styleUrls: ['./gallery-page.component.scss']
 })
-export class GalleryPageComponent implements OnInit {
+export class GalleryPageComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
   loadingState: boolean = true;
   photos: Photo[] = [];

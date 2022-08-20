@@ -8,7 +8,7 @@ import {Subscription} from "rxjs";
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent implements OnInit, OnDestroy {
   @Input('clickableGalleryImages') clickableGalleryImages: boolean = false;
   @Output('loadingState') loadingState = new EventEmitter<boolean>();
   @Input('photos') photos: Photo[] = [];
