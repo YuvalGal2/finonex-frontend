@@ -9,10 +9,7 @@ import {Post} from "../../models/post.model";
 export class PostsComponent implements OnInit {
   @Input('posts') posts: Post[] = [];
   constructor() { }
-
-  ngOnInit(): void {
-    console.log(this.posts);
-  }
+  ngOnInit(): void {}
 
 }
 

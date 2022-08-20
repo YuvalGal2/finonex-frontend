@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validator, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-contact-form',
@@ -15,9 +15,7 @@ export class ContactFormComponent implements OnInit {
     phone: new FormControl('', [Validators.required,Validators.pattern('^\\+380[0-9]{9}$')])
   });
   constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onFormSubmit(): void {
     this.formSubmitted = true;

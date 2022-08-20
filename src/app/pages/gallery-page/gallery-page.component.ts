@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import {DataService} from "../../services/data.service";
 import {Photo} from "../../models/photo.model";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-gallery-page-page',
@@ -8,8 +9,9 @@ import {Photo} from "../../models/photo.model";
   styleUrls: ['./gallery-page.component.scss']
 })
 export class GalleryPageComponent implements OnInit {
-  photos: Photo[] = [];
+  subscriptions: Subscription[] = [];
   loadingState: boolean = true;
+  photos: Photo[] = [];
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
@@ -19,11 +21,15 @@ export class GalleryPageComponent implements OnInit {
   changeLoadingState(state:boolean): void {
     this.loadingState = state;
   }
+
   fetchPhotos():void {
-    this.dataService.getGalleryPhotos().subscribe((photos: Photo[]) => {
+    this.subscriptions.push(this.dataService.getGalleryPhotos().subscribe((photos: Photo[]) => {
       this.loadingState = false;
       this.photos = photos;
-    });
+    },(error) => console.log('Request failed, probably need to do some handling...')));
   }
 
+  ngOnDestroy() {
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
+  }
 }

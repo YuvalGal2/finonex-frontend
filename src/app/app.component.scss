@@ -10,9 +10,7 @@
 .vertical-menu {
   display: none;
 }
-@media only screen and (min-width: 360px) {
-  // same
-}
+
 @media only screen and (min-width: 768px) {
   .mid-section {
     flex-direction: row;
@@ -27,7 +25,3 @@
     flex-basis: 67%;
   }
 }
-@media only screen and (min-width: 1024px) {
-
-}
-

@@ -10,7 +10,6 @@ export class VerticalMenuComponent implements OnInit {
   @Input('links') links: Link[] = [];
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

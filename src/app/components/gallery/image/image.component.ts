@@ -10,7 +10,6 @@ export class ImageComponent implements OnInit {
   @Input("photoData") photoData: Photo | undefined;
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Photo} from "../../models/photo.model";
-import {Data} from "@angular/router";
+import {Component, EventEmitter, Input, OnInit, Output, OnDestroy} from '@angular/core';
 import {DataService} from "../../services/data.service";
+import {Photo} from "../../models/photo.model";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-gallery',
@@ -9,22 +9,24 @@ import {DataService} from "../../services/data.service";
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent implements OnInit {
-  @Input('photos') photos: Photo[] = [];
   @Input('clickableGalleryImages') clickableGalleryImages: boolean = false;
   @Output('loadingState') loadingState = new EventEmitter<boolean>();
-  constructor(private dataService: DataService) {
+  @Input('photos') photos: Photo[] = [];
+  subscriptions: Subscription[] = [];
+  constructor(private dataService: DataService) {}
+  ngOnInit(): void {}
+
+  ngOnDestroy() {
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
 
-  ngOnInit(): void {
-  }
-
-  showAlbumRelatedImages(photo: Photo) {
+  showAlbumRelatedImages(photo: Photo): void {
     if (this.clickableGalleryImages) {
       this.loadingState.emit(true);
-      this.dataService.getAlbumById(photo.albumId).subscribe((filteredPhotos: Photo[]) => {
+      this.subscriptions.push(this.dataService.getAlbumById(photo.albumId).subscribe((filteredPhotos: Photo[]) => {
         this.photos = filteredPhotos
         this.loadingState.emit(false);
-      });
+      }));
     }
   }
 }

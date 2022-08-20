@@ -1,4 +1,4 @@
 export interface Link {
-  url:string;
-  text:string;
+  url: string;
+  text: string;
 }
